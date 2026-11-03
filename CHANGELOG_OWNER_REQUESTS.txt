@@ -1,0 +1,17 @@
+FARMING WITH URUNJI — CHANGELOG
+2026-11-02 — Whole-system venture and inventory hardening
+- Normalised venture labels and fixed advisory services under Shop.
+- Case-insensitive inventory matching; same item/unit/venture additions merge into existing stock.
+- Inventory quantity edits and identity changes are written to the stock ledger.
+- Added transaction validation for inventory, sales, procurement, and finance.
+- Added venture tabs to operational module lists and venture filters to reports.
+- Added per-venture income/expense/net summaries to the three dashboard charts, alongside the overall group chart.
+- Advisory service income and project costs are included under Shop for dashboard and financial reporting.
+- Stock ledger now exposes venture information and includes it in CSV exports.
+- Backup import normalises venture labels and reconstructs venture-specific stock keys.
+- Record edit/delete checks and duplicate redirect cleanup.
+
+2026-11-02 — Prior owner requests
+- Four vertically stacked financial graphs: Shop, Beans & Onions Farm, Cattle Farm, and overall group.
+- Advisory services tracked under Shop.
+- Existing inventory additions are matched without case sensitivity and summed into current stock.

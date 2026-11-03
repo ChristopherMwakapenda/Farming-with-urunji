@@ -1,0 +1,33 @@
+FARMING WITH URUNJI — WHOLE-SYSTEM UPDATE
+Build date: 2026-11-02
+
+WHAT CHANGED
+1. Venture assignment is normalised consistently to Shop, Beans & Onions Farm, or Cattle Farm. Advisory services are always assigned to Shop.
+2. Inventory item matching is case-insensitive and whitespace-normalised; venture and unit remain separate stock identities.
+3. Inventory additions for an existing item merge into the current quantity. Inventory edits now record quantity adjustments in the stock ledger; changing an item's identity records the old balance out and the new balance in.
+4. New inventory entries require a positive quantity. Sales and procurement require positive quantities, non-negative prices/costs, and item/unit values. Negative finance entries are rejected; choose the appropriate transaction type instead.
+5. Procurement and sales continue to update stock transactionally. The transaction rolls back if a stock update fails.
+6. Venture tabs were added to operational module lists so staff can inspect All ventures, Shop, Beans & Onions Farm, or Cattle Farm without mixing their displayed records.
+7. The dashboard presents three venture-specific charts and an overall business chart. Each venture chart now displays selected-period income, expenses, and net recorded result. Advisory receipts and project costs are attributed to Shop.
+8. Reports can be filtered by venture. Financial summaries include recorded advisory receipts and project costs; the expense report includes advisory project costs. CSV exports retain the selected venture/date filters.
+9. Stock Ledger now displays the venture embedded in each stock key and exports it to CSV.
+10. Backup import normalises venture labels and rebuilds stock keys using the relevant venture for procurement and sales records.
+11. Record edit/delete actions verify that the record belongs to the selected module. Removed a duplicate redirect after record saves.
+12. Added responsive styling for venture filters and the per-venture financial summaries.
+
+IMPORTANT DATA/ACCOUNTING NOTES
+- These changes do not alter the database credentials in config.php. Configure the destination host's existing credentials before deployment.
+- Back up the live database and current files before replacing a hosted installation. Do not run setup.php or reset/restore actions against the owner's production database unless intentionally setting up or restoring data.
+- Dashboard net figures are recorded income minus recorded procurement/service costs, not a complete statutory profit calculation. Wages, depreciation, opening/closing stock, unpaid invoices and other operating costs may require separate accounting treatment.
+- Advisory service dates currently use the engagement start date, falling back to the due date, when a report/chart needs a date. If accurate cash-basis reporting is required, record an explicit payment date and cost date for each advisory transaction.
+- PHP syntax checks passed for index.php. This environment does not have the owner's live MySQL credentials, so production database integration and browser testing still need to be completed after deployment.
+
+SAFE DEPLOYMENT CHECKLIST
+1. Download a fresh JSON backup from Settings and export a separate MySQL database backup in the hosting control panel/phpMyAdmin.
+2. Upload the ZIP contents to a staging copy first, preserving config.php credentials and existing uploaded assets.
+3. Test case variants (e.g. Beans/BEANS/beans), units, and each venture. Confirm adding stock merges only within the same venture and unit.
+4. Record a procurement and a sale in each venture; check on-hand balances, the Stock Ledger, dashboard charts, reports, and CSV exports.
+5. Edit inventory quantity and confirm the adjustment is visible in Stock Ledger. Edit/delete sales and procurement only after checking how later movements affect available stock.
+6. Verify advisory fees and project costs appear under Shop and in the relevant reports.
+7. Test login/session timeout, user roles, backup export/import, mobile layouts, and all pages on the live hosting environment.
+8. Replace production files only after staging checks pass; keep the pre-update files and database backup available for rollback.

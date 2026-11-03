@@ -1,0 +1,27 @@
+FARMING WITH URUNJI — UPDATE NOTES
+==================================
+
+Changes in this package
+1. Dashboard line chart points are larger and have native SVG hover titles showing the period, transaction category, and exact MWK amount. Hover directly over a point on the revenue or expense line.
+2. Group Finance now presents a consolidated, read-only reporting ledger that automatically collects:
+   - Sales as income
+   - Procurement as expenses
+   - Advisory service payments as income
+   - Advisory project costs as expenses
+   - Veterinary treatment costs as expenses
+   - Manually entered Group Finance transactions, including other income and expenses
+   The ledger is filtered by the selected venture and sorted newest-first. The CSV export button downloads the visible report.
+3. Advisory/module forms use a responsive two-column layout on wide screens and one column on narrow screens. Fields shrink within their containers and text areas span the available width to prevent overlap.
+4. General form and table overflow safeguards were added for mobile and smaller windows.
+
+Important finance notes
+- Existing operational records are displayed in the Group Finance report automatically; users should not enter those same sales or procurement items a second time as manual finance transactions, or the report will count them twice.
+- This is a consolidated report view, not a migration or deletion of existing records.
+- Income and expense totals include the operational records listed above. Owner withdrawals and transfers are kept as separate transaction types.
+- Keep regular database backups before deploying any application update.
+
+Deployment
+1. Back up the current site files and MySQL database.
+2. Upload/extract the ZIP contents over the existing application files, preserving the existing live config.php database credentials.
+3. Do not replace config.php with sample credentials. Keep the real InfinityFree host, database name, username, and password already configured for this farm.
+4. Sign in and test Dashboard, Group Finance, Advisory Services, Sales, Procurement, and the CSV export.
