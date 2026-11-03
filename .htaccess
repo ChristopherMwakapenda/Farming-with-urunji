@@ -1,6 +1,0 @@
-Options -Indexes
-DirectoryIndex index.php
-
-<FilesMatch "^(config\.php|database\.sql|.*\.sql|.*\.lock)$">
-    Require all denied
-</FilesMatch>
